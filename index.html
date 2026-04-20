@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Turbologi</title>
+<style>
+  body {
+    background: #0b0b0b;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 24px;
+    line-height: 1.5;
+  }
+
+  .hero-image {
+    width: 100%;
+    border-radius: 14px;
+    display: block;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+  }
+
+  .card {
+    background: #151515;
+    padding: 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    border: 1px solid #262626;
+  }
+
+  h1, h2, h3 {
+    margin-top: 0;
+  }
+
+  .tagline {
+    color: #facc15;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .intro-grid {
+    display: grid;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .muted {
+    color: #aaa;
+  }
+
+  .highlight {
+    color: #f5f5f5;
+    font-weight: bold;
+  }
+
+  .stations-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .station {
+    background: #1d1d1d;
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;
+    padding: 12px;
+  }
+
+  .station-name {
+    color: #facc15;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .pricing-list {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  label {
+    display: block;
+    margin-top: 12px;
+    color: #bbb;
+    font-weight: bold;
+  }
+
+  .input-wrap {
+    position: relative;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+  }
+
+  .live-hint {
+    margin-top: 8px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #1b1b1b;
+    border: 1px solid #303030;
+    color: #cfcfcf;
+    font-size: 14px;
+  }
+
+  .live-hint strong {
+    color: #facc15;
+  }
+
+  .summary-bar {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+    border: 1px solid #2f2f2f;
+  }
+
+  .summary-title {
+    color: #facc15;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  .summary-text {
+    color: #d4d4d4;
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 16px;
+    background: #facc15;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
+  .copy-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .copy-item {
+    background: #101010;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 12px;
+  }
+
+  .copy-label {
+    color: #facc15;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  .copy-value {
+    color: #eee;
+    font-family: Arial, sans-serif;
+    word-break: break-word;
+  }
+
+  .copy-button {
+    width: auto;
+    margin-top: 10px;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .result {
+    font-size: 28px;
+    font-weight: bold;
+    color: #facc15;
+    margin-top: 12px;
+  }
+
+  .small {
+    color: #999;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  .warning {
+    color: #ffb347;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .success {
+    color: #7cfc98;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  @media (min-width: 800px) {
+    .copy-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .intro-grid {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <img src="turbo-vache-logistic.png" alt="Turbo Vache Logistic Service" class="hero-image">
+
+  <div class="card">
+    <h1>TURBO VACHE LOGISTIC SERVICE</h1>
+    <div class="tagline">Great name. Great advertising. Wonderful service.</div>
+    <p class="muted">Public hauling contracts up to <strong>300,000 m3</strong>.</p>
+  </div>
+
+  <div class="card">
+    <h2>Serviced locations</h2>
+    <p class="muted">I currently offer delivery to and from the following stations:</p>
+
+    <div class="stations-list">
+      <div class="station">
+        <div class="station-name">Jita</div>
+        <div>Jita IV - Moon 4 - Caldari Navy Assembly Plant</div>
+      </div>
+
+      <div class="station">
+        <div class="station-name">Odebeinn</div>
+        <div>Odebeinn V - Moon 5 - Kaalakiota Corporation Factory</div>
+      </div>
+
+      <div class="station">
+        <div class="station-name">LXQ2-T</div>
+        <div>LXQ2-T - Dronelands Freeport West (DJ's Retirement Fund)</div>
+      </div>
+
+      <div class="station">
+        <div class="station-name">9WVY-F</div>
+        <div>9WVY-F - Dronelands Freeport East (DJ's Retirement Fund)</div>
+      </div>
+
+      <div class="station">
+        <div class="station-name">8-2JZA</div>
+        <div>8-2JZA - New Parses (The Peoples Space Republic)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Pricing</h2>
+    <ul class="pricing-list">
+      <li>Jita ↔ any serviced system: <strong>1,000 ISK/m3 + 1% collateral</strong></li>
+      <li>Odebeinn ↔ 8-2JZA: <strong>700 ISK/m3 + 1% collateral</strong></li>
+      <li>LXQ2-T ↔ 8-2JZA: <strong>500 ISK/m3 + 1% collateral</strong></li>
+    </ul>
+
+    <p class="muted" style="margin-top:12px;">
+      Set contracts to <strong>3 days to accept</strong> and <strong>7 days to complete</strong>.<br>
+      Contracts to: <strong>Imperia Udan</strong>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Quote calculator</h2>
+
+    <label for="from">From</label>
+    <select id="from">
+      <option value="jita">Jita — Jita IV - Moon 4 - Caldari Navy Assembly Plant</option>
+      <option value="odebeinn">Odebeinn — Odebeinn V - Moon 5 - Kaalakiota Corporation Factory</option>
+      <option value="lxq">LXQ2-T — Dronelands Freeport West (DJ's Retirement Fund)</option>
+      <option value="9wvy">9WVY-F — Dronelands Freeport East (DJ's Retirement Fund)</option>
+      <option value="8-2">8-2JZA — New Parses (The Peoples Space Republic)</option>
+    </select>
+
+    <label for="to">To</label>
+    <select id="to">
+      <option value="jita">Jita — Jita IV - Moon 4 - Caldari Navy Assembly Plant</option>
+      <option value="odebeinn">Odebeinn — Odebeinn V - Moon 5 - Kaalakiota Corporation Factory</option>
+      <option value="lxq">LXQ2-T — Dronelands Freeport West (DJ's Retirement Fund)</option>
+      <option value="9wvy">9WVY-F — Dronelands Freeport East (DJ's Retirement Fund)</option>
+      <option value="8-2">8-2JZA — New Parses (The Peoples Space Republic)</option>
+    </select>
+
+    <label for="volume">Volume (m3)</label>
+    <div class="input-wrap">
+      <input id="volume" type="number" placeholder="ex: 120000" oninput="updateLiveHints()" />
+    </div>
+    <div class="live-hint" id="volumeHint">Live readout: <strong>0 m3</strong></div>
+
+    <label for="collateral">Collateral (ISK)</label>
+    <div class="input-wrap">
+      <input id="collateral" type="number" placeholder="ex: 3000000000" oninput="updateLiveHints()" />
+    </div>
+    <div class="live-hint" id="collateralHint">Live readout: <strong>0 ISK</strong></div>
+
+    <button onclick="calc()">Calculate</button>
+
+    <div class="result" id="result">-</div>
+    <div class="small" id="details"></div>
+    <div class="warning" id="warning"></div>
+    <div class="success" id="copyStatus"></div>
+
+    <div class="summary-bar">
+      <div class="summary-title">Before you create the contract</div>
+      <div class="summary-text" id="calculatorSummary">
+        Enter a volume and collateral to see an easier-to-read version in millions and billions.
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Contract values to copy ingame</h2>
+    <p class="muted">Use the buttons below to copy only the exact values you need in the in-game contract window.</p>
+
+    <div class="copy-grid">
+      <div class="copy-item">
+        <div class="copy-label">Contract to</div>
+        <div class="copy-value" id="copyContractTo">Imperia Udan</div>
+        <button class="copy-button" onclick="copyField('copyContractTo')">Copy contractor name</button>
+      </div>
+
+      <div class="copy-item">
+        <div class="copy-label">Reward</div>
+        <div class="copy-value" id="copyReward">-</div>
+        <button class="copy-button" onclick="copyField('copyReward')">Copy reward</button>
+      </div>
+
+      <div class="copy-item">
+        <div class="copy-label">Collateral</div>
+        <div class="copy-value" id="copyCollateral">-</div>
+        <button class="copy-button" onclick="copyField('copyCollateral')">Copy collateral</button>
+      </div>
+
+      <div class="copy-item">
+        <div class="copy-label">Expiration</div>
+        <div class="copy-value" id="copyExpiration">3 days</div>
+        <button class="copy-button" onclick="copyField('copyExpiration')">Copy expiration</button>
+      </div>
+
+      <div class="copy-item">
+        <div class="copy-label">Time to complete</div>
+        <div class="copy-value" id="copyComplete">7 days</div>
+        <button class="copy-button" onclick="copyField('copyComplete')">Copy completion time</button>
+      </div>
+
+      <div class="copy-item">
+        <div class="copy-label">Pickup</div>
+        <div class="copy-value" id="copyPickup">-</div>
+        <button class="copy-button" onclick="copyField('copyPickup')">Copy pickup</button>
+      </div>
+
+      <div class="copy-item">
+        <div class="copy-label">Dropoff</div>
+        <div class="copy-value" id="copyDropoff">-</div>
+        <button class="copy-button" onclick="copyField('copyDropoff')">Copy dropoff</button>
+      </div>
+
+      <div class="copy-item">
+        <div class="copy-label">Volume</div>
+        <div class="copy-value" id="copyVolume">-</div>
+        <button class="copy-button" onclick="copyField('copyVolume')">Copy volume</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function formatNumber(x) {
+    return Math.round(Number(x || 0)).toLocaleString("fr-FR");
+  }
+
+  function formatCompactNumber(value, unit) {
+    const n = Number(value || 0);
+    if (!n) return "0 " + unit;
+
+    if (n >= 1_000_000_000) {
+      return (n / 1_000_000_000).toLocaleString("fr-FR", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+      }) + " billion" + (n >= 2_000_000_000 ? "s" : "") + " " + unit;
+    }
+
+    if (n >= 1_000_000) {
+      return (n / 1_000_000).toLocaleString("fr-FR", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+      }) + " million" + (n >= 2_000_000 ? "s" : "") + " " + unit;
+    }
+
+    if (n >= 1_000) {
+      return (n / 1_000).toLocaleString("fr-FR", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+      }) + " thousand " + unit;
+    }
+
+    return formatNumber(n) + " " + unit;
+  }
+
+  function updateLiveHints() {
+    const volume = Number(document.getElementById("volume").value || 0);
+    const collateral = Number(document.getElementById("collateral").value || 0);
+
+    document.getElementById("volumeHint").innerHTML =
+      'Live readout: <strong>' + formatNumber(volume) + ' m3</strong> (' + formatCompactNumber(volume, 'm3') + ')';
+
+    document.getElementById("collateralHint").innerHTML =
+      'Live readout: <strong>' + formatNumber(collateral) + ' ISK</strong> (' + formatCompactNumber(collateral, 'ISK') + ')';
+
+    document.getElementById("calculatorSummary").innerText =
+      "Volume: " + formatNumber(volume) + " m3 (" + formatCompactNumber(volume, "m3") + ") | " +
+      "Collateral: " + formatNumber(collateral) + " ISK (" + formatCompactNumber(collateral, "ISK") + ")";
+  }
+
+  function getRate(from, to) {
+    if ((from === "odebeinn" && to === "8-2") || (from === "8-2" && to === "odebeinn")) return 700;
+    if ((from === "lxq" && to === "8-2") || (from === "8-2" && to === "lxq")) return 500;
+    return 1000;
+  }
+
+  function getSystemLabel(value) {
+    if (value === "jita") return "Jita IV - Moon 4 - Caldari Navy Assembly Plant";
+    if (value === "odebeinn") return "Odebeinn V - Moon 5 - Kaalakiota Corporation Factory";
+    if (value === "lxq") return "LXQ2-T - Dronelands Freeport West (DJ's Retirement Fund)";
+    if (value === "9wvy") return "9WVY-F - Dronelands Freeport East (DJ's Retirement Fund)";
+    if (value === "8-2") return "8-2JZA - New Parses (The Peoples Space Republic)";
+    return value;
+  }
+
+  function calc() {
+    const from = document.getElementById("from").value;
+    const to = document.getElementById("to").value;
+    const volume = Number(document.getElementById("volume").value || 0);
+    const collateral = Number(document.getElementById("collateral").value || 0);
+
+    const rate = getRate(from, to);
+    const base = volume * rate;
+    const collateralFee = collateral * 0.01;
+    const total = base + collateralFee;
+
+    document.getElementById("result").innerText = formatNumber(total) + " ISK";
+
+    document.getElementById("details").innerText =
+      "Rate: " + formatNumber(rate) + " ISK/m3 | Volume cost: " +
+      formatNumber(base) + " ISK | Collateral fee: " +
+      formatNumber(collateralFee) + " ISK";
+
+    document.getElementById("calculatorSummary").innerText =
+      "Volume: " + formatNumber(volume) + " m3 (" + formatCompactNumber(volume, "m3") + ") | " +
+      "Collateral: " + formatNumber(collateral) + " ISK (" + formatCompactNumber(collateral, "ISK") + ") | " +
+      "Final reward: " + formatNumber(total) + " ISK (" + formatCompactNumber(total, "ISK") + ")";
+
+    if (volume > 300000) {
+      const split = Math.ceil(volume / 300000);
+      document.getElementById("warning").innerText =
+        "Warning: this shipment exceeds 300,000 m3. Suggested split: " + split + " contract(s).";
+    } else {
+      document.getElementById("warning").innerText = "";
+    }
+
+    document.getElementById("copyReward").innerText = formatNumber(total);
+    document.getElementById("copyCollateral").innerText = formatNumber(collateral);
+    document.getElementById("copyPickup").innerText = getSystemLabel(from);
+    document.getElementById("copyDropoff").innerText = getSystemLabel(to);
+    document.getElementById("copyVolume").innerText = formatNumber(volume) + " m3";
+  }
+
+  async function copyField(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    if (!text || text === "-") return;
+
+    await navigator.clipboard.writeText(text);
+    document.getElementById("copyStatus").innerText = "Copied: " + text;
+
+    setTimeout(() => {
+      document.getElementById("copyStatus").innerText = "";
+    }, 1500);
+  }
+
+  updateLiveHints();
+</script>
+
+</body>
+</html>
