@@ -258,6 +258,11 @@
         <div class="station-name">8-2JZA</div>
         <div>8-2JZA - New Parses (The Peoples Space Republic)</div>
       </div>
+
+      <div class="station">
+        <div class="station-name">NBW-GD</div>
+        <div>NBW-GD - Slik's Pleasure Hub (AMC.)</div>
+      </div>
     </div>
   </div>
 
@@ -267,6 +272,7 @@
       <li>Jita ↔ any serviced system: <strong>1,000 ISK/m3 + 1% collateral</strong></li>
       <li>Odebeinn ↔ 8-2JZA: <strong>700 ISK/m3 + 1% collateral</strong></li>
       <li>LXQ2-T ↔ 8-2JZA: <strong>500 ISK/m3 + 1% collateral</strong></li>
+      <li>NBW-GD ↔ 8-2JZA: <strong>250 ISK/m3 + 1% collateral</strong></li>
     </ul>
 
     <p class="muted" style="margin-top:12px;">
@@ -285,6 +291,7 @@
       <option value="lxq">LXQ2-T — Dronelands Freeport West (DJ's Retirement Fund)</option>
       <option value="9wvy">9WVY-F — Dronelands Freeport East (DJ's Retirement Fund)</option>
       <option value="8-2">8-2JZA — New Parses (The Peoples Space Republic)</option>
+      <option value="nbw">NBW-GD — Slik's Pleasure Hub (AMC.)</option>
     </select>
 
     <label for="to">To</label>
@@ -294,6 +301,7 @@
       <option value="lxq">LXQ2-T — Dronelands Freeport West (DJ's Retirement Fund)</option>
       <option value="9wvy">9WVY-F — Dronelands Freeport East (DJ's Retirement Fund)</option>
       <option value="8-2">8-2JZA — New Parses (The Peoples Space Republic)</option>
+      <option value="nbw">NBW-GD — Slik's Pleasure Hub (AMC.)</option>
     </select>
 
     <label for="volume">Volume (m3)</label>
@@ -427,6 +435,15 @@
   }
 
   function getRate(from, to) {
+    if ((from === "nbw" && to === "8-2") || (from === "8-2" && to === "nbw")) return 250;
+    if ((from === "nbw" && to === "9wvy") || (from === "9wvy" && to === "nbw")) return 300;
+    if ((from === "nbw" && to === "odebeinn") || (from === "odebeinn" && to === "nbw")) return 700;
+    if ((from === "nbw" && to === "lxq") || (from === "lxq" && to === "nbw")) return 500;
+    if ((from === "nbw" && to === "jita") || (from === "jita" && to === "nbw")) return 1000;
+    if ((from === "9wvy" && to === "jita") || (from === "jita" && to === "9wvy")) return 1000;
+    if ((from === "9wvy" && to === "8-2") || (from === "8-2" && to === "9wvy")) return 300;
+    if ((from === "9wvy" && to === "odebeinn") || (from === "odebeinn" && to === "9wvy")) return 700;
+    if ((from === "9wvy" && to === "lxq") || (from === "lxq" && to === "9wvy")) return 300;
     if ((from === "odebeinn" && to === "8-2") || (from === "8-2" && to === "odebeinn")) return 700;
     if ((from === "lxq" && to === "8-2") || (from === "8-2" && to === "lxq")) return 500;
     return 1000;
@@ -438,6 +455,7 @@
     if (value === "lxq") return "LXQ2-T - Dronelands Freeport West (DJ's Retirement Fund)";
     if (value === "9wvy") return "9WVY-F - Dronelands Freeport East (DJ's Retirement Fund)";
     if (value === "8-2") return "8-2JZA - New Parses (The Peoples Space Republic)";
+    if (value === "nbw") return "NBW-GD - Slik's Pleasure Hub (AMC.)";
     return value;
   }
 
