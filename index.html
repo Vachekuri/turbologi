@@ -226,11 +226,11 @@
   <div class="card">
     <h1>TURBO VACHE LOGISTIC SERVICE</h1>
     <div class="tagline">Great name. Great advertising. Wonderful service.</div>
-    <p class="muted">Public hauling contracts up to <strong>300,000 m3</strong>.</p>
+    <p class="muted">Public hauling contracts up to <strong>300,000 m³</strong>.</p>
   </div>
 
   <div class="card">
-    <h2>Serviced locations</h2>
+    <h2>Serviced Locations</h2>
     <p class="muted">I currently offer delivery to and from the following stations:</p>
 
     <div class="stations-list">
@@ -274,9 +274,9 @@
   <div class="card">
     <h2>Pricing</h2>
     <ul class="pricing-list">
-      <li>Jita / Hek / Dumkirinur ↔ any serviced system: <strong>1,000 ISK/m3 + 1% collateral</strong></li>
-      <li>Odebeinn ↔ 8-2JZA: <strong>700 ISK/m3 + 1% collateral</strong></li>
-      <li>LXQ2-T ↔ 8-2JZA: <strong>500 ISK/m3 + 1% collateral</strong></li>
+      <li>Jita / Hek / Dumkirinur ↔ any serviced system: <strong>1,000 ISK/m³ + 1% collateral</strong></li>
+      <li>Odebeinn ↔ 8-2JZA: <strong>700 ISK/m³ + 1% collateral</strong></li>
+      <li>LXQ2-T ↔ 8-2JZA: <strong>500 ISK/m³ + 1% collateral</strong></li>
     </ul>
 
     <p class="muted" style="margin-top:12px;">
@@ -286,7 +286,7 @@
   </div>
 
   <div class="card">
-    <h2>Quote calculator</h2>
+    <h2>Quote Calculator</h2>
 
     <label for="from">From</label>
     <select id="from">
@@ -338,56 +338,56 @@
   </div>
 
   <div class="card">
-    <h2>Contract values to copy ingame</h2>
+    <h2>Contract values to copy ingame.</h2>
     <p class="muted">Use the buttons below to copy only the exact values you need in the in-game contract window.</p>
 
     <div class="copy-grid">
       <div class="copy-item">
-        <div class="copy-label">Contract to</div>
+        <div class="copy-label">Contract To</div>
         <div class="copy-value" id="copyContractTo">Imperia Udan</div>
-        <button class="copy-button" onclick="copyField('copyContractTo')">Copy contractor name</button>
+        <button class="copy-button" onclick="copyField('copyContractTo')">Copy Contractor Name</button>
       </div>
 
       <div class="copy-item">
         <div class="copy-label">Reward</div>
         <div class="copy-value" id="copyReward">-</div>
-        <button class="copy-button" onclick="copyField('copyReward')">Copy reward</button>
+        <button class="copy-button" onclick="copyField('copyReward')">Copy Reward</button>
       </div>
 
       <div class="copy-item">
         <div class="copy-label">Collateral</div>
         <div class="copy-value" id="copyCollateral">-</div>
-        <button class="copy-button" onclick="copyField('copyCollateral')">Copy collateral</button>
+        <button class="copy-button" onclick="copyField('copyCollateral')">Copy Collateral</button>
       </div>
 
       <div class="copy-item">
         <div class="copy-label">Expiration</div>
-        <div class="copy-value" id="copyExpiration">3 days</div>
-        <button class="copy-button" onclick="copyField('copyExpiration')">Copy expiration</button>
+        <div class="copy-value" id="copyExpiration">3 Days</div>
+        <button class="copy-button" onclick="copyField('copyExpiration')">Copy Expiration</button>
       </div>
 
       <div class="copy-item">
-        <div class="copy-label">Time to complete</div>
-        <div class="copy-value" id="copyComplete">7 days</div>
-        <button class="copy-button" onclick="copyField('copyComplete')">Copy completion time</button>
+        <div class="copy-label">Time to Complete</div>
+        <div class="copy-value" id="copyComplete">7 Days</div>
+        <button class="copy-button" onclick="copyField('copyComplete')">Copy Completion Time</button>
       </div>
 
       <div class="copy-item">
         <div class="copy-label">Pickup</div>
         <div class="copy-value" id="copyPickup">-</div>
-        <button class="copy-button" onclick="copyField('copyPickup')">Copy pickup</button>
+        <button class="copy-button" onclick="copyField('copyPickup')">Copy Pickup</button>
       </div>
 
       <div class="copy-item">
         <div class="copy-label">Dropoff</div>
         <div class="copy-value" id="copyDropoff">-</div>
-        <button class="copy-button" onclick="copyField('copyDropoff')">Copy dropoff</button>
+        <button class="copy-button" onclick="copyField('copyDropoff')">Copy Dropoff</button>
       </div>
 
       <div class="copy-item">
         <div class="copy-label">Volume</div>
         <div class="copy-value" id="copyVolume">-</div>
-        <button class="copy-button" onclick="copyField('copyVolume')">Copy volume</button>
+        <button class="copy-button" onclick="copyField('copyVolume')">Copy Volume</button>
       </div>
     </div>
   </div>
@@ -405,21 +405,21 @@
       return (n / 1_000_000_000).toLocaleString("fr-FR", {
         minimumFractionDigits: 0,
         maximumFractionDigits: 2
-      }) + " billion" + (n >= 2_000_000_000 ? "s" : "") + " " + unit;
+      }) + " Billion" + " " + unit;
     }
 
     if (n >= 1_000_000) {
       return (n / 1_000_000).toLocaleString("fr-FR", {
         minimumFractionDigits: 0,
         maximumFractionDigits: 2
-      }) + " million" + (n >= 2_000_000 ? "s" : "") + " " + unit;
+      }) + " Million" + " " + unit;
     }
 
     if (n >= 1_000) {
       return (n / 1_000).toLocaleString("fr-FR", {
         minimumFractionDigits: 0,
         maximumFractionDigits: 2
-      }) + " thousand " + unit;
+      }) + " Thousand " + unit;
     }
 
     return formatNumber(n) + " " + unit;
@@ -430,13 +430,13 @@
     const collateral = Number(document.getElementById("collateral").value || 0);
 
     document.getElementById("volumeHint").innerHTML =
-      'Live readout: <strong>' + formatNumber(volume) + ' m3</strong> (' + formatCompactNumber(volume, 'm3') + ')';
+      'Live readout: <strong>' + formatNumber(volume) + ' m³</strong> (' + formatCompactNumber(volume, 'm³') + ')';
 
     document.getElementById("collateralHint").innerHTML =
       'Live readout: <strong>' + formatNumber(collateral) + ' ISK</strong> (' + formatCompactNumber(collateral, 'ISK') + ')';
 
     document.getElementById("calculatorSummary").innerText =
-      "Volume: " + formatNumber(volume) + " m3 (" + formatCompactNumber(volume, "m3") + ") | " +
+      "Volume: " + formatNumber(volume) + " m³ (" + formatCompactNumber(volume, "m³") + ") | " +
       "Collateral: " + formatNumber(collateral) + " ISK (" + formatCompactNumber(collateral, "ISK") + ")";
   }
 
@@ -475,19 +475,19 @@
     document.getElementById("result").innerText = formatNumber(total) + " ISK";
 
     document.getElementById("details").innerText =
-      "Rate: " + formatNumber(rate) + " ISK/m3 | Volume cost: " +
+      "Rate: " + formatNumber(rate) + " ISK/m³ | Volume cost: " +
       formatNumber(base) + " ISK | Collateral fee: " +
       formatNumber(collateralFee) + " ISK";
 
     document.getElementById("calculatorSummary").innerText =
-      "Volume: " + formatNumber(volume) + " m3 (" + formatCompactNumber(volume, "m3") + ") | " +
+      "Volume: " + formatNumber(volume) + " m³ (" + formatCompactNumber(volume, "m³") + ") | " +
       "Collateral: " + formatNumber(collateral) + " ISK (" + formatCompactNumber(collateral, "ISK") + ") | " +
       "Final reward: " + formatNumber(total) + " ISK (" + formatCompactNumber(total, "ISK") + ")";
 
     if (volume > 300000) {
       const split = Math.ceil(volume / 300000);
       document.getElementById("warning").innerText =
-        "Warning: this shipment exceeds 300,000 m3. Suggested split: " + split + " contract(s).";
+        "Warning: this shipment exceeds 300,000 m³. Suggested split: " + split + " contract(s).";
     } else {
       document.getElementById("warning").innerText = "";
     }
@@ -496,7 +496,7 @@
     document.getElementById("copyCollateral").innerText = formatNumber(collateral);
     document.getElementById("copyPickup").innerText = getSystemLabel(from);
     document.getElementById("copyDropoff").innerText = getSystemLabel(to);
-    document.getElementById("copyVolume").innerText = formatNumber(volume) + " m3";
+    document.getElementById("copyVolume").innerText = formatNumber(volume) + " m³";
   }
 
   async function copyField(elementId) {
@@ -516,3 +516,4 @@
 
 </body>
 </html>
+<!-- Fast-Blast was here (: -->
